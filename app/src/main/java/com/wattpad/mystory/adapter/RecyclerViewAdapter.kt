@@ -10,9 +10,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.mikhaellopez.circularimageview.CircularImageView
 import com.wattpad.mystory.R
-import com.wattpad.mystory.model.entity.Story
+import com.wattpad.mystory.model.entity.Article
 
-class RecyclerViewAdapter(private val mContext: Context, private val mData: List<Story>) :
+class RecyclerViewAdapter(private val mContext: Context, private val mData: List<Article>) :
     RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
@@ -39,7 +39,7 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
         val options = RequestOptions()
 
-        Glide.with(mContext).load(mData[position].cover).into(holder.bookImage)
+        Glide.with(mContext).load(mData[position].urlToImage).into(holder.bookImage)
             .apply {
                 options.centerCrop()
                 options.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
@@ -47,15 +47,15 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
                 options.onlyRetrieveFromCache(true)
             }
 
-        Glide.with(mContext).load(mData[position].user?.avatar).into(holder.userImage).apply {
+       /* Glide.with(mContext).load(mData[position].user?.avatar).into(holder.userImage).apply {
             options.centerCrop()
             options.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             options.dontTransform()
             options.onlyRetrieveFromCache(true)
-        }
+        } */
 
-        if (mData[position].user!!.name != null)
-            holder.userText.text = mData[position].user!!.name
+        if (mData[position].author != null)
+            holder.userText.text = mData[position].author
         else {
             holder.userText.text = ""
         }

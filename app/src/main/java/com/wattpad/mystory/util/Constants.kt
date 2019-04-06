@@ -7,7 +7,7 @@ class Constants {
         /**
          * Base url for api call
          */
-        const val BASE_URL = "https://www.wattpad.com"
+        const val BASE_URL = "https://newsapi.org"
 
         const val bookUrl = "bookUrl"
 

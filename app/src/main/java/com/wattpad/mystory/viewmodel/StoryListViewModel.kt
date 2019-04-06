@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import com.wattpad.mystory.R
 import com.wattpad.mystory.di.component.DaggerNetworkComponent
 import com.wattpad.mystory.model.api.FetchStroyAPI
-import com.wattpad.mystory.model.entity.Story
 import com.wattpad.mystory.util.Constants
 import com.wattpad.mystory.util.DialogBuilder
 import com.wattpad.mystory.util.NetworkStatus

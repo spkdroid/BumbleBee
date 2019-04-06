@@ -6,7 +6,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(NetModule::class))
+@Component(modules = [NetModule::class])
 interface NetworkComponent {
     fun inject(storyListViewModel: StoryListViewModel)
 }
