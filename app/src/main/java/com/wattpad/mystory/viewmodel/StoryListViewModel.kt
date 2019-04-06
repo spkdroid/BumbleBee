@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import com.wattpad.mystory.R
 import com.wattpad.mystory.di.component.DaggerNetworkComponent
 import com.wattpad.mystory.model.api.FetchStroyAPI
+import com.wattpad.mystory.model.entity.Article
 import com.wattpad.mystory.util.Constants
 import com.wattpad.mystory.util.DialogBuilder
 import com.wattpad.mystory.util.NetworkStatus
@@ -25,9 +26,9 @@ import javax.inject.Inject
 class StoryListViewModel : ViewModel() {
 
     companion object {
-        var storyList = ArrayList<Story>()
+        var storyList = ArrayList<Article>()
         val compositeDisposable = CompositeDisposable()
-        var searchResult: ArrayList<Story> = ArrayList()
+        var searchResult: ArrayList<Article> = ArrayList()
     }
 
     init {
@@ -37,7 +38,7 @@ class StoryListViewModel : ViewModel() {
     @Inject
     lateinit var fetchStory: Retrofit
 
-    var bookList: ArrayList<Story> = ArrayList()
+    var bookList: ArrayList<Article> = ArrayList()
 
     private var searchEnabled: Boolean = false
 
@@ -45,7 +46,7 @@ class StoryListViewModel : ViewModel() {
         context: Context,
         BookList: RecyclerView,
         loadProgressBar: ProgressBar
-    ): ArrayList<Story> {
+    ): ArrayList<Article> {
 
         if (!NetworkStatus().isDataAvailable(context)) {
             DialogBuilder().progressDialog(context, "Network Alert", "No Data or Wifi available on the device").show()
@@ -63,7 +64,7 @@ class StoryListViewModel : ViewModel() {
             .subscribe(
                 { result ->
                     run {
-                        result.stories!!.forEach {
+                        result.articles!!.forEach {
                             storyList.add(it)
                         }
                     }
@@ -94,6 +95,7 @@ class StoryListViewModel : ViewModel() {
     fun navigateSelectedItem(ctx: View, position: Int) {
         val bundle = Bundle()
 
+        /*
         if (searchEnabled) {
             bundle.putString(Constants.bookUrl, searchResult[position].cover)
             bundle.putString(Constants.bookName, searchResult[position].title)
@@ -108,9 +110,10 @@ class StoryListViewModel : ViewModel() {
             bundle.putString(Constants.userFullName, storyList[position].user?.fullname)
         }
         Navigation.findNavController(ctx).navigate(R.id.action_mainFragment_to_storyDetailFragment, bundle)
+    */
     }
 
-    fun searchStory(searchString: String): ArrayList<Story> {
+    fun searchStory(searchString: String): ArrayList<Article> {
         return if (searchString.isEmpty()) {
             searchEnabled = false
             storyList
@@ -121,8 +124,8 @@ class StoryListViewModel : ViewModel() {
                 (story?.title?.startsWith(
                     searchString,
                     true
-                )!! || story.user?.fullname?.startsWith(searchString, true)!!)
-            } as ArrayList<Story>
+                )!! || story.author?.startsWith(searchString, true)!!)
+            } as ArrayList<Article>
             searchResult
         }
     }

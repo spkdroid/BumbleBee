@@ -12,14 +12,14 @@
 
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="10dp"
             android:layout_height="match_parent">
 
         <ImageView
                 android:id="@+id/bookImageUrl"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:background="#2d2d2d"/>
+                android:background="@drawable/ic_launcher_background"/>
 
         <TextView
                 android:id="@+id/bookTitleName"
