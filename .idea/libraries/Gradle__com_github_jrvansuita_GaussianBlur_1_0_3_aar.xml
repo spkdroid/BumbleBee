@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.jrvansuita:GaussianBlur:1.0.3@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/GaussianBlur-1.0.3.aar/8282518f7e3c1108fc9f08fc413ef734/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/GaussianBlur-1.0.3.aar/8282518f7e3c1108fc9f08fc413ef734/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jrvansuita/GaussianBlur/1.0.3/89f94547dcec000daae5392404709e13a8c89dd1/GaussianBlur-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -3,13 +3,9 @@ package com.wattpad.mystory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.Menu
-import android.widget.Toast
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.wattpad.mystory.model.event.SearchMessage
-import com.wattpad.mystory.util.DialogBuilder
 import org.greenrobot.eventbus.EventBus
 
 

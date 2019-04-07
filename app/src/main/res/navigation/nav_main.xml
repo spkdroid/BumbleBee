@@ -5,17 +5,6 @@
             app:startDestination="@id/mainFragment">
 
     <fragment android:id="@+id/mainFragment" android:name="com.wattpad.mystory.fragment.StoryListFragment"
-              android:label="main_fragment" tools:layout="@layout/main_fragment">
-        <action android:id="@+id/action_mainFragment_to_storyDetailFragment" app:destination="@id/storyDetailFragment"/>
-        <argument android:name="bookURL" app:argType="string"/>
-        <argument android:name="bookTitle" app:argType="string"/>
-        <argument android:name="authorURL" app:argType="string"/>
-        <argument android:name="authorName" app:argType="string"/>
-    </fragment>
-    <fragment android:id="@+id/storyDetailFragment" android:name="com.wattpad.mystory.fragment.StoryDetailFragment"
-              android:label="story_detail_fragment" tools:layout="@layout/story_detail_fragment"/>
-    <argument android:name="argsBookUrl" app:argType="string"/>
-    <argument android:name="argsBookTitle" app:argType="string"/>
-    <argument android:name="argsAuthorUrl" app:argType="string"/>
-    <argument android:name="argsAuthorName" app:argType="string"/>
+              android:label="main_fragment" tools:layout="@layout/main_fragment"/>
+
 </navigation>
