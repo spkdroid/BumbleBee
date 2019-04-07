@@ -7,7 +7,9 @@
         android:layout_height="match_parent"
         tools:context=".fragment.StoryListFragment"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@android:color/white"
+>
 
     <ProgressBar
             android:id="@+id/loadProgressBar"

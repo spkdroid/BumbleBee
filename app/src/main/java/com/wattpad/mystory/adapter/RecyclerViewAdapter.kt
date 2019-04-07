@@ -44,10 +44,7 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
         Glide.with(mContext).load(mData[position].urlToImage).into(holder.bookImage)
             .apply {
-                options.centerCrop()
-                options.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                options.dontTransform()
-                options.onlyRetrieveFromCache(true)
+                options.override(250,200)
             }
 
 

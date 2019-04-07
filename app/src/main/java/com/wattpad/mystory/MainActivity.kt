@@ -2,11 +2,11 @@ package com.wattpad.mystory
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.SearchView
 import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
-import com.wattpad.mystory.model.event.SearchMessage
-import org.greenrobot.eventbus.EventBus
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,23 +26,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_item, menu)
+        return true
+    }
 
-        menuInflater.inflate(R.menu.menu_item, menu)
-        val item = menu.findItem(R.id.search)
-        val searchView = item.actionView as SearchView
-        searchView.isIconified = true
-        searchView.queryHint = "Search by Name or Title"
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> Setting()
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(query: String): Boolean {
-                EventBus.getDefault().post(SearchMessage(query))
-                return false
-            }
-        })
+    private fun Setting(): Boolean {
+        Toast.makeText(applicationContext,"Settings",Toast.LENGTH_LONG).show()
         return true
     }
 }
