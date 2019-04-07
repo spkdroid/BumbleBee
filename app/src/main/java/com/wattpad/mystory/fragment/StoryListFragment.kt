@@ -71,12 +71,12 @@ class StoryListFragment : Fragment() {
 
         if (!viewModel.isTabletDevice(this.context!!)) {
             if (viewModel.isLandScapeMode(this.context!!)) {
-                storyList.layoutManager = GridLayoutManager(context, 5)
+                storyList.layoutManager = GridLayoutManager(context, 1)
             } else {
-                storyList.layoutManager = GridLayoutManager(context, 3)
+                storyList.layoutManager = GridLayoutManager(context, 1)
             }
         } else {
-            storyList.layoutManager = GridLayoutManager(context, 10)
+            storyList.layoutManager = GridLayoutManager(context, 1)
         }
 
         storyList.addOnItemTouchListener(

@@ -10,25 +10,31 @@
                                     android:layout_margin="5dp"
                                     cardview:cardCornerRadius="4dp" app:ignore="NamespaceTypo">
 
-    <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
-                                                 android:layout_height="300dp"
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="250dp"
+                  android:orientation="vertical"
     >
-        <ImageView android:layout_width="413dp" android:layout_height="0dp"
+        <ImageView android:layout_width="413dp" android:layout_height="200dp"
                    android:id="@+id/newsGridBackground"
-                   android:background="@drawable/sample"
                    cardview:layout_constraintEnd_toEndOf="parent" cardview:layout_constraintTop_toTopOf="parent"
                    cardview:layout_constraintStart_toStartOf="parent"
-                   cardview:layout_constraintBottom_toBottomOf="parent"/>
+                   cardview:layout_constraintBottom_toBottomOf="parent"
+                   android:layout_gravity="center"
+        />
+
         <TextView
-                android:text="Sample Text"
-                android:textColor="#FFFFFF"
-                android:layout_width="208dp"
-                android:layout_height="53dp"
-                android:id="@+id/textView"
-                android:textSize="30dp"
-                cardview:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="16dp" cardview:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="28dp"/>
-    </android.support.constraint.ConstraintLayout>
+                android:text="TextView"
+                android:id="@+id/newsTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+        />
+
+
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

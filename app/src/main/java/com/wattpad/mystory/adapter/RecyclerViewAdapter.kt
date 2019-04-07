@@ -58,12 +58,12 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
             options.onlyRetrieveFromCache(true)
         } */
 
-        /*
-        if (mData[position].author != null)
-            holder.userText.text = mData[position].author
+
+        if (mData[position].title != null)
+            holder.newsTitleText.text = mData[position].title
         else {
-            holder.userText.text = ""
-        } */
+            holder.newsTitleText.text = ""
+        }
     }
 
     interface ClickListener {
@@ -117,6 +117,7 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
     //        itemView.findViewById(R.id.userProfileImage) as CircularImageView
     //    internal var userText: TextView = itemView.findViewById(R.id.userNameText)
       internal var bookImage: ImageView = itemView.findViewById(R.id.newsGridBackground) as ImageView
+        internal var newsTitleText : TextView = itemView.findViewById(R.id.newsTitleText) as TextView
 
     }
 }
