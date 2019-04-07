@@ -6,11 +6,8 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.wattpad.mystory.R
 import com.wattpad.mystory.model.entity.Article
-
 
 
 class RecyclerViewAdapter(private val mContext: Context, private val mData: List<Article>) :
@@ -29,24 +26,8 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-     /*   if (mData[position].title != null) {
-            if (mData[position].title?.length!! > 20) {
-                holder.bookTitle.text = mData[position].title?.substring(0, 20).toString() + "..."
-            } else
-                holder.bookTitle.text = mData[position].title
-        } else {
-            holder.bookTitle.text = ""
-        }
-*/
-        val options = RequestOptions()
-
-       // holder.bookImage.background =
 
         Glide.with(mContext).load(mData[position].urlToImage).into(holder.bookImage)
-            .apply {
-                options.override(250,200)
-            }
-
 
         if (mData[position].title != null)
             holder.newsTitleText.text = mData[position].title
@@ -101,6 +82,6 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var bookImage: ImageView = itemView.findViewById(R.id.newsGridBackground) as ImageView
-        internal var newsTitleText : TextView = itemView.findViewById(R.id.newsTitleText) as TextView
+        internal var newsTitleText: TextView = itemView.findViewById(R.id.newsTitleText) as TextView
     }
 }

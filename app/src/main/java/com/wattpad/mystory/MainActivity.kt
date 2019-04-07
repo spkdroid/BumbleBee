@@ -6,7 +6,10 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import com.heetch.countrypicker.CountryPickerCallbacks
+import com.heetch.countrypicker.CountryPickerDialog
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun Setting(): Boolean {
-        Toast.makeText(applicationContext,"Settings",Toast.LENGTH_LONG).show()
+
         return true
     }
 }

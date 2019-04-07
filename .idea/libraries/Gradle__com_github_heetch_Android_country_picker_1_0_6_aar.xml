@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.heetch:Android-country-picker:1.0.6@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Android-country-picker-1.0.6.aar/ad266ef36cca6db69cf78e0ac11b1829/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Android-country-picker-1.0.6.aar/ad266ef36cca6db69cf78e0ac11b1829/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -4,16 +4,12 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.Navigation
 import com.wattpad.mystory.R
 import com.wattpad.mystory.adapter.RecyclerViewAdapter
 import com.wattpad.mystory.model.event.SearchMessage
-import com.wattpad.mystory.util.DialogBuilder
 import com.wattpad.mystory.viewmodel.StoryListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.greenrobot.eventbus.EventBus
@@ -31,10 +27,9 @@ class StoryListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View
-    {
+    ): View {
 
-      //  Navigation.findNavController(this,R.id.mainFragment)
+        //  Navigation.findNavController(this,R.id.mainFragment)
 
         return if (view != null) {
             view as View
@@ -43,8 +38,7 @@ class StoryListFragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?)
-    {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(StoryListViewModel::class.java)
 

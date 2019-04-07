@@ -53,6 +53,8 @@ dependencies {
 
     implementation 'com.github.jrvansuita:GaussianBlur:1.0.3'
 
+    implementation 'com.github.heetch:Android-country-picker:1.0.6'
+
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
 
