@@ -10,48 +10,31 @@
                                     android:layout_margin="5dp"
                                     cardview:cardCornerRadius="4dp" app:ignore="NamespaceTypo">
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="10dp"
-            android:layout_height="match_parent">
-
-        <ImageView
-                android:id="@+id/bookImageUrl"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:background="@drawable/ic_launcher_background"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="250dp"
+                  android:orientation="vertical"
+    >
+        <ImageView android:layout_width="413dp" android:layout_height="200dp"
+                   android:id="@+id/newsGridBackground"
+                   cardview:layout_constraintEnd_toEndOf="parent" cardview:layout_constraintTop_toTopOf="parent"
+                   cardview:layout_constraintStart_toStartOf="parent"
+                   cardview:layout_constraintBottom_toBottomOf="parent"
+                   android:layout_gravity="center"
+        />
 
         <TextView
-                android:id="@+id/bookTitleName"
-                android:textColor="#2d2d2d"
-                android:textSize="12sp"
-                android:gravity="center"
+                android:text="TextView"
+                android:id="@+id/newsTitleText"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="Book Title" android:textStyle="bold"/>
+                android:layout_height="49dp"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+        />
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/ic_launcher_foreground"
-                    android:id="@+id/userProfileImage"
-                    app:civ_border_color="#EEEEEE"
-                    app:civ_border_width="4dp"
-                    app:civ_shadow="true"
-                    app:civ_shadow_radius="10"
-                    app:civ_shadow_color="#8BC34A"/>
-            <TextView
-                    android:id="@+id/userNameText"
-                    android:text="Name"
-                    android:textSize="8dp"
-                    android:textColor="@color/colorAccent"
-                    android:layout_width="128dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold|italic" android:textAllCaps="false" android:textAlignment="viewStart"/>
-        </LinearLayout>
+
     </LinearLayout>
+
 </android.support.v7.widget.CardView>

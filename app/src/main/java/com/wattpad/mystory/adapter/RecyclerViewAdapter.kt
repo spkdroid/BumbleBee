@@ -1,6 +1,8 @@
 package com.wattpad.mystory.adapter
 
 import android.content.Context
+import android.support.constraint.ConstraintLayout
+import android.support.design.widget.CoordinatorLayout
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.ImageView
@@ -28,7 +30,7 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        if (mData[position].title != null) {
+     /*   if (mData[position].title != null) {
             if (mData[position].title?.length!! > 20) {
                 holder.bookTitle.text = mData[position].title?.substring(0, 20).toString() + "..."
             } else
@@ -36,8 +38,10 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
         } else {
             holder.bookTitle.text = ""
         }
-
+*/
         val options = RequestOptions()
+
+       // holder.bookImage.background =
 
         Glide.with(mContext).load(mData[position].urlToImage).into(holder.bookImage)
             .apply {
@@ -54,10 +58,11 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
             options.onlyRetrieveFromCache(true)
         } */
 
-        if (mData[position].author != null)
-            holder.userText.text = mData[position].author
+
+        if (mData[position].title != null)
+            holder.newsTitleText.text = mData[position].title
         else {
-            holder.userText.text = ""
+            holder.newsTitleText.text = ""
         }
     }
 
@@ -106,10 +111,13 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        internal var bookTitle: TextView = itemView.findViewById(R.id.bookTitleName)
-        internal var bookImage: ImageView = itemView.findViewById(R.id.bookImageUrl) as ImageView
-        internal var userImage: CircularImageView =
-            itemView.findViewById(R.id.userProfileImage) as CircularImageView
-        internal var userText: TextView = itemView.findViewById(R.id.userNameText)
+     //   internal var bookTitle: TextView = itemView.findViewById(R.id.bookTitleName)
+     //   internal var bookImage: ImageView = itemView.findViewById(R.id.bookImageUrl) as ImageView
+    //    internal var userImage: CircularImageView =
+    //        itemView.findViewById(R.id.userProfileImage) as CircularImageView
+    //    internal var userText: TextView = itemView.findViewById(R.id.userNameText)
+      internal var bookImage: ImageView = itemView.findViewById(R.id.newsGridBackground) as ImageView
+        internal var newsTitleText : TextView = itemView.findViewById(R.id.newsTitleText) as TextView
+
     }
 }
