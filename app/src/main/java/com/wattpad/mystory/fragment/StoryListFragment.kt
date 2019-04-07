@@ -7,9 +7,10 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.wattpad.mystory.R
 import com.wattpad.mystory.adapter.RecyclerViewAdapter
-import com.wattpad.mystory.model.event.SearchMessage
+import com.wattpad.mystory.model.event.ChangeCountry
 import com.wattpad.mystory.viewmodel.StoryListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.greenrobot.eventbus.EventBus
@@ -100,12 +101,9 @@ class StoryListFragment : Fragment() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun messageEventFromService(event: SearchMessage) {
-        val searchResult = viewModel.searchStory(event.searchString)
-        storyList.apply {
-            adapter = RecyclerViewAdapter(context, searchResult)
-        }
-        storyList.adapter?.notifyDataSetChanged()
+    public fun navigateSettings(event: ChangeCountry)
+    {
+        Navigation.findNavController(this!!.view!!).navigate(R.id.action_mainFragment_to_settingFragment)
     }
 
 

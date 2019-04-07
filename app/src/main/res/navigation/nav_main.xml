@@ -5,6 +5,10 @@
             app:startDestination="@id/mainFragment">
 
     <fragment android:id="@+id/mainFragment" android:name="com.wattpad.mystory.fragment.StoryListFragment"
-              android:label="main_fragment" tools:layout="@layout/main_fragment"/>
+              android:label="main_fragment" tools:layout="@layout/main_fragment">
+        <action android:id="@+id/action_mainFragment_to_settingFragment" app:destination="@id/settingFragment"/>
+    </fragment>
+    <fragment android:id="@+id/settingFragment" android:name="com.wattpad.mystory.fragment.SettingFragment"
+              android:label="setting_fragment" tools:layout="@layout/setting_fragment"/>
 
 </navigation>

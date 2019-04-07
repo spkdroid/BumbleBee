@@ -10,6 +10,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.heetch.countrypicker.CountryPickerCallbacks
 import com.heetch.countrypicker.CountryPickerDialog
+import com.wattpad.mystory.model.event.ChangeCountry
+import org.greenrobot.eventbus.EventBus
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun Setting(): Boolean {
-
+        EventBus.getDefault().post(ChangeCountry("ChangeCountry"))
         return true
     }
 }
