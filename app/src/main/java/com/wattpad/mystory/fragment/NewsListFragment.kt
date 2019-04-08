@@ -35,37 +35,37 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
         viewModel = ViewModelProviders.of(this).get(NewsListViewModel::class.java)
 
         if (viewModel.bookList.isEmpty()) {
-            storyList.visibility = View.GONE
-            viewModel.bookList = viewModel.getBooks(this.context!!, storyList, loadProgressBar)
+            newsItemList.visibility = View.GONE
+            viewModel.bookList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
         } else {
             loadProgressBar.visibility = View.GONE
         }
 
-        storyList.apply {
+        newsItemList.apply {
             adapter = NewsViewAdapter(context, viewModel.bookList)
         }
 
         swipeContainer.setOnRefreshListener {
             viewModel.clear()
-            viewModel.bookList = viewModel.getBooks(this.context!!, storyList, loadProgressBar)
-            storyList.apply {
+            viewModel.bookList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
+            newsItemList.apply {
                 adapter = NewsViewAdapter(context, viewModel.bookList)
             }
-            storyList.adapter?.notifyDataSetChanged()
+            newsItemList.adapter?.notifyDataSetChanged()
             swipeContainer.isRefreshing = false
         }
 
         if (!viewModel.isTabletDevice(this.context!!)) {
             if (viewModel.isLandScapeMode(this.context!!)) {
-                storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
+                newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             } else {
-                storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
+                newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             }
         } else {
-            storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
+            newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
         }
 
-        storyList.addOnItemTouchListener(
+        newsItemList.addOnItemTouchListener(
             NewsViewAdapter.RecyclerTouchListener(
                 this.context!!,
                 object :

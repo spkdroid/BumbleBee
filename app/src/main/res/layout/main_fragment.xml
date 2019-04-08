@@ -5,7 +5,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.StoryListFragment"
+        tools:context=".fragment.NewsListFragment"
         android:orientation="vertical"
         android:padding="8dp"
         android:background="@android:color/white"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/storyList"
+                android:id="@+id/newsItemList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
         </androidx.recyclerview.widget.RecyclerView>
