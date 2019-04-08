@@ -37,8 +37,6 @@ class StoryListViewModel : ViewModel() {
 
     var bookList: ArrayList<Article> = ArrayList()
 
-    private var searchEnabled: Boolean = false
-
     fun getBooks(
         context: Context,
         BookList: androidx.recyclerview.widget.RecyclerView,
@@ -89,11 +87,8 @@ class StoryListViewModel : ViewModel() {
         result!!.articles!!.forEach {
             storyList.add(it)
         }
-
         BookList.adapter!!.notifyDataSetChanged()
-
     }
-
 
     fun clear() {
         storyList.clear()

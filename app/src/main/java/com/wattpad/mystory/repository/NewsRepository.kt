@@ -12,7 +12,7 @@ object NewsRepository : RepositoryService {
     }
 
     override fun getAll(): ArrayList<Article> {
-        return newsList;
+        return newsList
     }
 
     override fun addNews(article: Article) {

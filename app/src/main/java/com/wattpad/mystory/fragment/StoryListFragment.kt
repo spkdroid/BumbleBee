@@ -92,8 +92,8 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public fun navigateSettings(event: ChangeCountry) {
-        Navigation.findNavController(this!!.view!!).navigate(R.id.action_mainFragment_to_settingFragment)
+    fun navigateSettings(event: ChangeCountry) {
+        Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_settingFragment)
     }
 
 
