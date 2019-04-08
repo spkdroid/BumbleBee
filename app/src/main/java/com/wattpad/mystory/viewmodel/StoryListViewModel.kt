@@ -26,7 +26,6 @@ class StoryListViewModel : ViewModel() {
     companion object {
         var storyList = ArrayList<Article>()
         val compositeDisposable = CompositeDisposable()
-        var searchResult: ArrayList<Article> = ArrayList()
     }
 
     init {
@@ -98,27 +97,6 @@ class StoryListViewModel : ViewModel() {
 
     fun clear() {
         storyList.clear()
-    }
-
-    fun navigateSelectedItem(ctx: View, position: Int) {
-
-    }
-
-    fun searchStory(searchString: String): ArrayList<Article> {
-        return if (searchString.isEmpty()) {
-            searchEnabled = false
-            storyList
-        } else {
-            searchEnabled = true
-            searchResult.clear()
-            searchResult = storyList.filter { story ->
-                (story?.title?.startsWith(
-                    searchString,
-                    true
-                )!! || story.author?.startsWith(searchString, true)!!)
-            } as ArrayList<Article>
-            searchResult
-        }
     }
 
     fun isTabletDevice(ctx: Context): Boolean {
