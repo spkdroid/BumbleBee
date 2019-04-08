@@ -5,24 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
 import com.wattpad.mystory.R
-import com.wattpad.mystory.adapter.RecyclerViewAdapter
-import com.wattpad.mystory.model.event.ChangeCountry
-import com.wattpad.mystory.viewmodel.StoryListViewModel
+import com.wattpad.mystory.adapter.NewsViewAdapter
+import com.wattpad.mystory.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 
-class StoryListFragment : androidx.fragment.app.Fragment() {
+class NewsListFragment : androidx.fragment.app.Fragment() {
 
     companion object {
-        fun newInstance() = StoryListFragment()
+        fun newInstance() = NewsListFragment()
     }
 
-    private lateinit var viewModel: StoryListViewModel
+    private lateinit var viewModel: NewsListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,7 +32,7 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(StoryListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(NewsListViewModel::class.java)
 
         if (viewModel.bookList.isEmpty()) {
             storyList.visibility = View.GONE
@@ -46,14 +42,14 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
         }
 
         storyList.apply {
-            adapter = RecyclerViewAdapter(context, viewModel.bookList)
+            adapter = NewsViewAdapter(context, viewModel.bookList)
         }
 
         swipeContainer.setOnRefreshListener {
             viewModel.clear()
             viewModel.bookList = viewModel.getBooks(this.context!!, storyList, loadProgressBar)
             storyList.apply {
-                adapter = RecyclerViewAdapter(context, viewModel.bookList)
+                adapter = NewsViewAdapter(context, viewModel.bookList)
             }
             storyList.adapter?.notifyDataSetChanged()
             swipeContainer.isRefreshing = false
@@ -70,12 +66,12 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
         }
 
         storyList.addOnItemTouchListener(
-            RecyclerViewAdapter.RecyclerTouchListener(
+            NewsViewAdapter.RecyclerTouchListener(
                 this.context!!,
                 object :
-                    RecyclerViewAdapter.ClickListener {
+                    NewsViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {
-                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_descriptionFragment)
+
                     }
                 })
         )
@@ -90,11 +86,4 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
         EventBus.getDefault().unregister(this)
         super.onStop()
     }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun navigateSettings(event: ChangeCountry) {
-        Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_settingFragment)
-    }
-
-
 }

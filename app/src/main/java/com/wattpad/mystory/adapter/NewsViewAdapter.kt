@@ -9,8 +9,8 @@ import com.wattpad.mystory.R
 import com.wattpad.mystory.model.entity.Article
 
 
-class RecyclerViewAdapter(private val mContext: Context, private val mData: List<Article>) :
-    androidx.recyclerview.widget.RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class NewsViewAdapter(private val mContext: Context, private val mData: List<Article>) :
+    androidx.recyclerview.widget.RecyclerView.Adapter<NewsViewAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
         return mData.size
@@ -39,22 +39,18 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
     internal class RecyclerTouchListener(
         context: Context,
-        private val clicklistener: ClickListener?
+        private val clicker: ClickListener?
     ) : androidx.recyclerview.widget.RecyclerView.OnItemTouchListener {
-        private val gestureDetector: GestureDetector
-
-        init {
-            gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
-                override fun onSingleTapUp(e: MotionEvent): Boolean {
-                    return true
-                }
-            })
-        }
+        private val gestureDetector: GestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onSingleTapUp(e: MotionEvent): Boolean {
+                return true
+            }
+        })
 
         override fun onInterceptTouchEvent(rv: androidx.recyclerview.widget.RecyclerView, e: MotionEvent): Boolean {
             val child = rv.findChildViewUnder(e.x, e.y)
-            if (child != null && clicklistener != null && gestureDetector.onTouchEvent(e)) {
-                clicklistener.onClick(child, rv.getChildAdapterPosition(child))
+            if (child != null && clicker != null && gestureDetector.onTouchEvent(e)) {
+                clicker.onClick(child, rv.getChildAdapterPosition(child))
             }
             return false
         }

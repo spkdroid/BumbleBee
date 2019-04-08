@@ -21,7 +21,7 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 
 
-class StoryListViewModel : ViewModel() {
+class NewsListViewModel : ViewModel() {
 
     companion object {
         var storyList = ArrayList<Article>()
