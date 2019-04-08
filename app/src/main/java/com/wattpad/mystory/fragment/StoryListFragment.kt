@@ -29,9 +29,6 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-
-        //  Navigation.findNavController(this,R.id.mainFragment)
-
         return if (view != null) {
             view as View
         } else {

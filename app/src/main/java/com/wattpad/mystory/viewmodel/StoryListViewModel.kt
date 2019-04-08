@@ -1,15 +1,16 @@
 package com.wattpad.mystory.viewmodel
 
-import androidx.lifecycle.ViewModel
 import android.content.Context
 import android.content.res.Configuration
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.RecyclerView
 import com.wattpad.mystory.di.component.DaggerNetworkComponent
 import com.wattpad.mystory.model.api.FetchStroyAPI
 import com.wattpad.mystory.model.entity.Article
+import com.wattpad.mystory.model.entity.ArticleCollection
 import com.wattpad.mystory.util.DialogBuilder
 import com.wattpad.mystory.util.NetworkStatus
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -55,7 +56,7 @@ class StoryListViewModel : ViewModel() {
 
         storyList.clear()
 
-        val data = HashMap<String,String>()
+        val data = HashMap<String, String>()
         data["country"] = "in"
         data["apiKey"] = "ee5eaccd9e8a451089e664ab00b1b1db"
 
@@ -64,13 +65,8 @@ class StoryListViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { result ->
-                    run {
-                        result.articles!!.forEach {
-                            storyList.add(it)
-                        }
-                    }
-                    BookList.adapter!!.notifyDataSetChanged()
+                {
+                        result -> showResult(result, BookList)
                 },
                 {
                     run {
@@ -87,6 +83,16 @@ class StoryListViewModel : ViewModel() {
             )
         compositeDisposable.add(disposable)
         return storyList
+    }
+
+    private fun showResult(result: ArticleCollection?, BookList: RecyclerView) {
+
+        result!!.articles!!.forEach {
+            storyList.add(it)
+        }
+
+        BookList.adapter!!.notifyDataSetChanged()
+
     }
 
 

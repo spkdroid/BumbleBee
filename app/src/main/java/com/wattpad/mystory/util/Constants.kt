@@ -8,15 +8,5 @@ class Constants {
          * Base url for api call
          */
         const val BASE_URL = "https://newsapi.org"
-
-        const val bookUrl = "bookUrl"
-
-        const val bookName = "bookName"
-
-        const val userName = "userName"
-
-        const val userUrl = "userUrl"
-
-        const val userFullName = "userFull"
     }
 }
