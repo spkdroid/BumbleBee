@@ -77,13 +77,4 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
         )
     }
 
-    override fun onStart() {
-        super.onStart()
-        EventBus.getDefault().register(this)
-    }
-
-    override fun onStop() {
-        EventBus.getDefault().unregister(this)
-        super.onStop()
-    }
 }

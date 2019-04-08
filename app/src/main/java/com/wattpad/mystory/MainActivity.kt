@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun Setting(): Boolean {
-        EventBus.getDefault().post(ChangeCountry("ChangeCountry"))
         return true
     }
 }
