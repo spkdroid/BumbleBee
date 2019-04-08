@@ -9,11 +9,9 @@ class NetworkStatus {
 
         val connectivityManager = ctx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        return if (connectivityManager != null) {
+        return let {
             val activeNetwork = connectivityManager.activeNetworkInfo
             activeNetwork != null && activeNetwork.isConnected
-        } else {
-            false
         }
     }
 }

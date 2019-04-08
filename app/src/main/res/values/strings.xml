@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Bumble Bee</string>
-    <string name="search_title">Search</string>
     <string name="action_settings">settings</string>
 </resources>
