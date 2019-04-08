@@ -2,8 +2,6 @@ package com.wattpad.mystory.fragment
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,7 +72,6 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
         storyList.addOnItemTouchListener(
             RecyclerViewAdapter.RecyclerTouchListener(
                 this.context!!,
-                storyList,
                 object :
                     RecyclerViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {

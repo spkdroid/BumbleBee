@@ -1,7 +1,6 @@
 package com.wattpad.mystory.adapter
 
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,8 +24,6 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
-
         Glide.with(mContext).load(mData[position].urlToImage).into(holder.bookImage)
 
         if (mData[position].title != null)
@@ -38,12 +35,10 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
 
     interface ClickListener {
         fun onClick(view: View, position: Int)
-        fun onLongClick(view: View, position: Int)
     }
 
     internal class RecyclerTouchListener(
         context: Context,
-        recycleView: androidx.recyclerview.widget.RecyclerView,
         private val clicklistener: ClickListener?
     ) : androidx.recyclerview.widget.RecyclerView.OnItemTouchListener {
         private val gestureDetector: GestureDetector
@@ -52,13 +47,6 @@ class RecyclerViewAdapter(private val mContext: Context, private val mData: List
             gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
                 override fun onSingleTapUp(e: MotionEvent): Boolean {
                     return true
-                }
-
-                override fun onLongPress(e: MotionEvent) {
-                    val child = recycleView.findChildViewUnder(e.x, e.y)
-                    if (child != null && clicklistener != null) {
-                        clicklistener.onLongClick(child, recycleView.getChildAdapterPosition(child))
-                    }
                 }
             })
         }
