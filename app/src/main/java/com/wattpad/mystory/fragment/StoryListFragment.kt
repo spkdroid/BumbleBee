@@ -1,19 +1,16 @@
 package com.wattpad.mystory.fragment
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.view.KeyEvent
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.Navigation
 import com.wattpad.mystory.R
 import com.wattpad.mystory.adapter.RecyclerViewAdapter
-import com.wattpad.mystory.model.event.SearchMessage
-import com.wattpad.mystory.util.DialogBuilder
+import com.wattpad.mystory.model.event.ChangeCountry
 import com.wattpad.mystory.viewmodel.StoryListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.greenrobot.eventbus.EventBus
@@ -21,7 +18,7 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
 
-class StoryListFragment : Fragment() {
+class StoryListFragment : androidx.fragment.app.Fragment() {
 
     companion object {
         fun newInstance() = StoryListFragment()
@@ -31,10 +28,9 @@ class StoryListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View
-    {
+    ): View {
 
-      //  Navigation.findNavController(this,R.id.mainFragment)
+        //  Navigation.findNavController(this,R.id.mainFragment)
 
         return if (view != null) {
             view as View
@@ -43,8 +39,7 @@ class StoryListFragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?)
-    {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(StoryListViewModel::class.java)
 
@@ -71,12 +66,12 @@ class StoryListFragment : Fragment() {
 
         if (!viewModel.isTabletDevice(this.context!!)) {
             if (viewModel.isLandScapeMode(this.context!!)) {
-                storyList.layoutManager = GridLayoutManager(context, 1)
+                storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             } else {
-                storyList.layoutManager = GridLayoutManager(context, 1)
+                storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             }
         } else {
-            storyList.layoutManager = GridLayoutManager(context, 1)
+            storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
         }
 
         storyList.addOnItemTouchListener(
@@ -86,7 +81,8 @@ class StoryListFragment : Fragment() {
                 object :
                     RecyclerViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {
-                        viewModel.navigateSelectedItem(view, position)
+                       // viewModel.navigateSelectedItem(view, position)
+                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_descriptionFragment)
                     }
 
                     override fun onLongClick(view: View, position: Int) {
@@ -106,12 +102,9 @@ class StoryListFragment : Fragment() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun messageEventFromService(event: SearchMessage) {
-        val searchResult = viewModel.searchStory(event.searchString)
-        storyList.apply {
-            adapter = RecyclerViewAdapter(context, searchResult)
-        }
-        storyList.adapter?.notifyDataSetChanged()
+    public fun navigateSettings(event: ChangeCountry)
+    {
+        Navigation.findNavController(this!!.view!!).navigate(R.id.action_mainFragment_to_settingFragment)
     }
 
 

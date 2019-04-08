@@ -20,7 +20,7 @@ class DialogBuilder {
             .setCancelable(true)
     }
 
-    fun ExitDialog(activity:Activity,context: Context, title: String, content: String): AlertDialog.Builder {
+    fun ExitDialog(activity: Activity, context: Context, title: String, content: String): AlertDialog.Builder {
         return AlertDialog.Builder(context)
             .setTitle(title)
             .setIcon(R.drawable.alert)
