@@ -1,8 +1,8 @@
 package com.wattpad.mystory.fragment
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import com.wattpad.mystory.R
 import com.wattpad.mystory.viewmodel.SettingViewModel
 
-class SettingFragment : Fragment() {
+class SettingFragment : androidx.fragment.app.Fragment() {
 
     companion object {
         fun newInstance() = SettingFragment()

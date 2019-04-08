@@ -1,6 +1,6 @@
 package com.wattpad.mystory.viewmodel
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 class SettingViewModel : ViewModel() {
     // TODO: Implement the ViewModel

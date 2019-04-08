@@ -1,9 +1,9 @@
 package com.wattpad.mystory.viewmodel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import android.content.Context
 import android.content.res.Configuration
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -41,7 +41,7 @@ class StoryListViewModel : ViewModel() {
 
     fun getBooks(
         context: Context,
-        BookList: RecyclerView,
+        BookList: androidx.recyclerview.widget.RecyclerView,
         loadProgressBar: ProgressBar
     ): ArrayList<Article> {
 

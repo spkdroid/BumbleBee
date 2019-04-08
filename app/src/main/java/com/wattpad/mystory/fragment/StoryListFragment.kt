@@ -1,9 +1,9 @@
 package com.wattpad.mystory.fragment
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
 
-class StoryListFragment : Fragment() {
+class StoryListFragment : androidx.fragment.app.Fragment() {
 
     companion object {
         fun newInstance() = StoryListFragment()
@@ -66,12 +66,12 @@ class StoryListFragment : Fragment() {
 
         if (!viewModel.isTabletDevice(this.context!!)) {
             if (viewModel.isLandScapeMode(this.context!!)) {
-                storyList.layoutManager = GridLayoutManager(context, 1)
+                storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             } else {
-                storyList.layoutManager = GridLayoutManager(context, 1)
+                storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             }
         } else {
-            storyList.layoutManager = GridLayoutManager(context, 1)
+            storyList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
         }
 
         storyList.addOnItemTouchListener(
@@ -81,7 +81,8 @@ class StoryListFragment : Fragment() {
                 object :
                     RecyclerViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {
-                        viewModel.navigateSelectedItem(view, position)
+                       // viewModel.navigateSelectedItem(view, position)
+                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_descriptionFragment)
                     }
 
                     override fun onLongClick(view: View, position: Int) {
