@@ -1,10 +1,10 @@
 package com.wattpad.mystory.fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.wattpad.mystory.R
 import com.wattpad.mystory.adapter.RecyclerViewAdapter
@@ -75,11 +75,7 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
                 object :
                     RecyclerViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {
-                       // viewModel.navigateSelectedItem(view, position)
                         Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_descriptionFragment)
-                    }
-
-                    override fun onLongClick(view: View, position: Int) {
                     }
                 })
         )
@@ -96,8 +92,7 @@ class StoryListFragment : androidx.fragment.app.Fragment() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public fun navigateSettings(event: ChangeCountry)
-    {
+    public fun navigateSettings(event: ChangeCountry) {
         Navigation.findNavController(this!!.view!!).navigate(R.id.action_mainFragment_to_settingFragment)
     }
 
