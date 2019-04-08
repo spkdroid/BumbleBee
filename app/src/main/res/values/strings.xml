@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Bumble Bee</string>
     <string name="action_settings">settings</string>
+
+    <string name="share">Share</string>
+    <string name="view">Read More</string>
 </resources>

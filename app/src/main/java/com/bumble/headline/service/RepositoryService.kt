@@ -4,7 +4,7 @@ import com.wattpad.headlines.model.entity.Article
 
 interface RepositoryService {
 
-    fun initializeRepository()
+    fun initializeRepository(articleList:ArrayList<Article>)
 
     fun getAll():ArrayList<Article>
 

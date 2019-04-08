@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.bumble.headline.R
 import com.bumble.headline.adapter.NewsViewAdapter
 import com.wattpad.headlines.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
+import org.michaelbel.bottomsheet.BottomSheet
 
 
 class NewsListFragment : androidx.fragment.app.Fragment() {
@@ -71,6 +73,23 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
                     NewsViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {
 
+
+                        val items = intArrayOf(R.string.view, R.string.share)
+
+                        val icons = intArrayOf(
+                            R.drawable.ic_attachment_black_24dp,
+                            R.drawable.ic_share_black_24dp
+                        )
+                        val bottomSheetMenu = BottomSheet.Builder(view.context)
+                        bottomSheetMenu.setTitle("More Options")
+                            .setItems(items, icons) { dialog, which ->
+                                if (which == 0) {
+                                    Toast.makeText(context, "Option 0 Selected", Toast.LENGTH_LONG).show()
+                                } else {
+                                    Toast.makeText(context, "Option 1 Selected", Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        bottomSheetMenu.show()
                     }
                 })
         )
