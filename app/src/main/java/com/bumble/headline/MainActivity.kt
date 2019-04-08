@@ -1,4 +1,4 @@
-package com.wattpad.headlines
+package com.bumble.headline
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
-import com.bumble.headline.R
 
 
 class MainActivity : AppCompatActivity() {

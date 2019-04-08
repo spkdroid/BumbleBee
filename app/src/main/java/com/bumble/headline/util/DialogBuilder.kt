@@ -14,7 +14,7 @@ class DialogBuilder {
             .setMessage(content)
             .setNeutralButton(
                 "Cancel"
-            ) { dialogInterface: DialogInterface, i: Int ->
+            ) { dialogInterface: DialogInterface, _: Int ->
                 dialogInterface.dismiss()
             }
             .setCancelable(true)

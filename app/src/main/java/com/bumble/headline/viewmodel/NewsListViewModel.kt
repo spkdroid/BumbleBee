@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
-import com.wattpad.mystory.di.component.DaggerNetworkComponent
+import com.wattpad.headlines.di.component.DaggerNetworkComponent
 import com.wattpad.headlines.model.api.FetchStroyAPI
 import com.wattpad.headlines.model.entity.Article
 import com.wattpad.headlines.model.entity.ArticleCollection
