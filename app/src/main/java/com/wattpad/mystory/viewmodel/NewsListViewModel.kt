@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.Configuration
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.wattpad.mystory.di.component.DaggerNetworkComponent
@@ -24,7 +23,7 @@ import javax.inject.Inject
 class NewsListViewModel : ViewModel() {
 
     companion object {
-        var storyList = ArrayList<Article>()
+        var newsList = ArrayList<Article>()
         val compositeDisposable = CompositeDisposable()
     }
 
@@ -39,22 +38,22 @@ class NewsListViewModel : ViewModel() {
 
     fun getBooks(
         context: Context,
-        BookList: androidx.recyclerview.widget.RecyclerView,
+        newsRecyclerView: RecyclerView,
         loadProgressBar: ProgressBar
     ): ArrayList<Article> {
 
         if (!NetworkStatus().isDataAvailable(context)) {
             DialogBuilder().progressDialog(context, "Network Alert", "No Data or Wifi available on the device").show()
             loadProgressBar.visibility = View.GONE
-            return storyList
+            return newsList
         }
 
         val mService = fetchStory.create(FetchStroyAPI::class.java)
 
-        storyList.clear()
+        newsList.clear()
 
         val data = HashMap<String, String>()
-        data["country"] = "in"
+        data["country"] = "us"
         data["apiKey"] = "ee5eaccd9e8a451089e664ab00b1b1db"
 
 
@@ -63,35 +62,37 @@ class NewsListViewModel : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                        result -> showResult(result, BookList)
+                        result -> showResult(result, newsRecyclerView)
                 },
                 {
-                    run {
-                        loadProgressBar.visibility = View.GONE
-                        Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
-                    }
+                    showError(loadProgressBar)
                 }, {
-                    run {
-                        loadProgressBar.visibility = View.GONE
-                        BookList.visibility = View.VISIBLE
-                        Toast.makeText(context, "Complete", Toast.LENGTH_LONG).show()
-                    }
+                    showComplete(loadProgressBar,newsRecyclerView)
                 }
             )
         compositeDisposable.add(disposable)
-        return storyList
+        return newsList
     }
 
-    private fun showResult(result: ArticleCollection?, BookList: RecyclerView) {
+    private fun showComplete(loadProgressBar: ProgressBar, newsRecyclerView: RecyclerView) {
+        loadProgressBar.visibility = View.GONE
+        newsRecyclerView.visibility = View.VISIBLE
+    }
+
+    private fun showError(loadProgressBar: ProgressBar) {
+        loadProgressBar.visibility = View.GONE
+    }
+
+    private fun showResult(result: ArticleCollection?, newsRecyclerView: RecyclerView) {
 
         result!!.articles!!.forEach {
-            storyList.add(it)
+            newsList.add(it)
         }
-        BookList.adapter!!.notifyDataSetChanged()
+        newsRecyclerView.adapter!!.notifyDataSetChanged()
     }
 
     fun clear() {
-        storyList.clear()
+        newsList.clear()
     }
 
     fun isTabletDevice(ctx: Context): Boolean {
