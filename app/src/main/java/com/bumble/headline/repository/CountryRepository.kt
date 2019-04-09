@@ -3,6 +3,17 @@ package com.bumble.headline.repository
 import android.content.Context
 import android.content.SharedPreferences
 
+/**
+ *    Country Repository
+ *    Scope - Singleton
+ *
+ *    initializeRepository - initialize the shared preference
+ *    getSelectedCountry -  Get the current selected country (Default Selection = "United States")
+ *    getSelectedCountryCode - Get the Country code based on the selection
+ *    updateSelectedCountryCode - Update the Country code on the sharedPreference
+ *
+ */
+
 object CountryRepository {
 
     private var sharedPreferences: SharedPreferences? = null

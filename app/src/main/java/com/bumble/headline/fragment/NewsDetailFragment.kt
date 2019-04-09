@@ -10,6 +10,12 @@ import com.bumble.headline.R
 import com.bumble.headline.viewmodel.NewsDetailViewModel
 import kotlinx.android.synthetic.main.news_detail_fragment.*
 
+/**
+ *
+ * News Detail fragment is to view more information about the selected news
+ *
+ */
+
 class NewsDetailFragment : Fragment() {
 
     companion object {

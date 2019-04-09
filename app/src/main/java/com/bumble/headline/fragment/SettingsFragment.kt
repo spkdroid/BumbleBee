@@ -8,12 +8,16 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.andrognito.flashbar.Flashbar
-import com.andrognito.flashbar.anim.FlashAnim
 import com.bumble.headline.R
 import com.bumble.headline.repository.CountryRepository
 import com.bumble.headline.viewmodel.SettingsViewModel
 import kotlinx.android.synthetic.main.settings_fragment.*
+
+/**
+ *
+ *  The setting page is to pick the news source country.
+ *
+ */
 
 
 class SettingsFragment : Fragment() {
@@ -47,7 +51,6 @@ class SettingsFragment : Fragment() {
         updateCountryButton.setOnClickListener {
             countryText.text = countrySpinner.selectedItem.toString()
             viewModel.updateCountry(countryText.text.toString())
-
             Toast.makeText(context,"Please Refresh the news feed",Toast.LENGTH_LONG).show()
         }
     }

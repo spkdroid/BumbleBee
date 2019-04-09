@@ -8,6 +8,10 @@ import com.bumble.headline.R
 import com.bumble.headline.model.entity.Article
 import com.bumptech.glide.Glide
 
+/**
+ *   NewsView Adapter is the declaration of the recyclerview list item
+ *
+ */
 
 class NewsViewAdapter(private val mContext: Context, private val mData: List<Article>) :
     androidx.recyclerview.widget.RecyclerView.Adapter<NewsViewAdapter.MyViewHolder>() {
@@ -24,7 +28,7 @@ class NewsViewAdapter(private val mContext: Context, private val mData: List<Art
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Glide.with(mContext).load(mData[position].urlToImage).into(holder.bookImage)
+        Glide.with(mContext).load(mData[position].urlToImage).into(holder.newsImage)
 
         if (mData[position].title != null)
             holder.newsTitleText.text = mData[position].title
@@ -66,7 +70,7 @@ class NewsViewAdapter(private val mContext: Context, private val mData: List<Art
     }
 
     class MyViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
-        internal var bookImage: ImageView = itemView.findViewById(R.id.newsGridBackground) as ImageView
+        internal var newsImage: ImageView = itemView.findViewById(R.id.newsGridBackground) as ImageView
         internal var newsTitleText: TextView = itemView.findViewById(R.id.newsTitleText) as TextView
     }
 }

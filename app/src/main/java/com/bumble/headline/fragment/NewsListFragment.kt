@@ -14,6 +14,14 @@ import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.michaelbel.bottomsheet.BottomSheet
 
+/**
+ *
+ * NewsListFragment
+ *
+ * This is the hub fragment of the bumblebee application
+ *
+ */
+
 
 class NewsListFragment : androidx.fragment.app.Fragment() {
 
@@ -52,12 +60,19 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
             Navigation.findNavController(this.view!!).navigate(R.id.action_newsListFragment_to_settingsFragment)
         }
 
+
+        // Swipe to refresh the screen
         swipeContainer.setOnRefreshListener {
-
             refreshNewsScreen()
-
         }
 
+        /**
+         *   This is to calculate the number of grids on the news recyclerview
+         *
+         *   Phone has one per row
+         *   tablet has two per row
+         *
+         */
         if (!viewModel.isTabletDevice(this.context!!)) {
             if (viewModel.isLandScapeMode(this.context!!)) {
                 newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
@@ -68,6 +83,11 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
             newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
         }
 
+        /**
+         *
+         *   News item click listener implementation.
+         *
+         */
         newsItemList.addOnItemTouchListener(
             NewsViewAdapter.RecyclerTouchListener(
                 this.context!!,
@@ -102,6 +122,13 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
                 })
         )
     }
+
+
+    /**
+     *
+     * Refresh logic for the news list
+     *
+     */
 
     private fun refreshNewsScreen() {
         viewModel.clear()
