@@ -46,6 +46,10 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
             adapter = NewsViewAdapter(context, viewModel.bookList)
         }
 
+        changeHeadlineLocation.setOnClickListener {
+            Navigation.findNavController(this!!.view!!).navigate(R.id.action_newsListFragment_to_settingsFragment)
+        }
+
         swipeContainer.setOnRefreshListener {
             viewModel.clear()
             viewModel.bookList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)

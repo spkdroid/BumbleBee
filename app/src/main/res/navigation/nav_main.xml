@@ -7,7 +7,10 @@
               android:label="NewsListFragment">
         <action android:id="@+id/action_newsListFragment_to_newsDetailFragment2"
                 app:destination="@id/newsDetailFragment2"/>
+        <action android:id="@+id/action_newsListFragment_to_settingsFragment" app:destination="@id/settingsFragment"/>
     </fragment>
     <fragment android:id="@+id/newsDetailFragment2" android:name="com.bumble.headline.fragment.NewsDetailFragment"
               android:label="news_detail_fragment" tools:layout="@layout/news_detail_fragment"/>
+    <fragment android:id="@+id/settingsFragment" android:name="com.bumble.headline.fragment.SettingsFragment"
+              android:label="settings_fragment" tools:layout="@layout/settings_fragment"/>
 </navigation>
