@@ -1,4 +1,4 @@
-package com.wattpad.headlines.util
+package com.bumble.headline.util
 
 
 class Constants {

@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 
 class NewsDetailViewModel : ViewModel() {
 
-    fun initalizePage(
+    fun initializePage(
         newsArticleImage: ImageView,
         newsArticleTime: TextView,
         newsArticleDescription: TextView,

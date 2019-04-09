@@ -1,4 +1,4 @@
-package com.wattpad.headlines.util
+package com.bumble.headline.util
 
 import android.content.Context
 import android.net.ConnectivityManager

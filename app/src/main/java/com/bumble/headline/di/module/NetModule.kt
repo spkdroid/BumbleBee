@@ -1,7 +1,7 @@
 package com.bumble.headline
 
+import com.bumble.headline.util.Constants
 import com.google.gson.GsonBuilder
-import com.wattpad.headlines.util.Constants
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -15,7 +15,7 @@ class NetModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-        val Gson = GsonBuilder()
+         val Gson = GsonBuilder()
             .setLenient()
             .create()
 

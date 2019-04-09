@@ -7,13 +7,14 @@ import android.widget.ProgressBar
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.bumble.headline.NewsRepository
+import com.bumble.headline.R
 import com.bumble.headline.di.component.DaggerNetworkComponent
 import com.bumble.headline.model.api.FetchStoryAPI
 import com.bumble.headline.model.entity.Article
 import com.bumble.headline.model.entity.ArticleCollection
 import com.bumble.headline.repository.CountryRepository
-import com.wattpad.headlines.util.DialogBuilder
-import com.wattpad.headlines.util.NetworkStatus
+import com.bumble.headline.util.DialogBuilder
+import com.bumble.headline.util.NetworkStatus
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -25,7 +26,6 @@ import javax.inject.Inject
 class NewsListViewModel : ViewModel() {
 
     companion object {
-        var newsList = ArrayList<Article>()
         val compositeDisposable = CompositeDisposable()
     }
 
@@ -56,7 +56,7 @@ class NewsListViewModel : ViewModel() {
 
         val data = HashMap<String, String>()
         data["country"] = CountryRepository.getSelectedCountryCode()
-        data["apiKey"] = "ee5eaccd9e8a451089e664ab00b1b1db"
+        data["apiKey"] = context.resources.getString(R.string.apikey)
 
         val disposable: Disposable = mService.loadStory(data)
             .subscribeOn(Schedulers.io())
