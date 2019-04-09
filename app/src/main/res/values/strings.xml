@@ -6,4 +6,16 @@
     <string name="view">Read More</string>
 
     <string name="selectedCountryText">Selected Country</string>
+
+    <string-array name="country_arrays">
+        <item>Australia</item>
+        <item>Canada</item>
+        <item>United States</item>
+        <item>United Kingdom</item>
+        <item>France</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
+
 </resources>
