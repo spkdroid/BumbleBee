@@ -1,6 +1,5 @@
-package com.bumble.headline
+package com.bumble.headline.util
 
-import com.bumble.headline.util.Constants
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
