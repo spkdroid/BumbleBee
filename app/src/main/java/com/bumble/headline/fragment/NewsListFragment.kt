@@ -1,4 +1,4 @@
-package com.bumble.headline
+package com.bumble.headline.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import com.bumble.headline.NewsRepository
+import com.bumble.headline.R
 import com.bumble.headline.adapter.NewsViewAdapter
 import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
