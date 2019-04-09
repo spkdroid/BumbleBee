@@ -32,10 +32,11 @@ android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="87dp"
             android:id="@+id/newsArticleTitle"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:textColor="@android:color/black"
             tools:layout_editor_absoluteY="326dp" tools:layout_editor_absoluteX="16dp"
             android:background="@android:color/white"
+            android:textStyle="bold"
     />
 
     <androidx.cardview.widget.CardView android:layout_width="match_parent"
