@@ -6,17 +6,22 @@ import android.content.SharedPreferences
 object CountryRepository {
 
     private var sharedPreferences: SharedPreferences? = null
-    var selectedCountry: String = ""
 
-    val countryCodeMap: HashMap<String, String> = hashMapOf("USA" to "us", "Canada" to "ca")
+
+    private val countryCodeMap: HashMap<String, String> = hashMapOf("USA" to "us", "Canada" to "ca","India" to "in")
 
 
     fun initializeRepository(ctx: Context) {
         sharedPreferences = ctx!!.getSharedPreferences("CountryPref", Context.MODE_PRIVATE)
     }
 
+
+    fun getSelectedCountry():String {
+        return sharedPreferences!!.getString("country","USA")
+    }
+
     fun getSelectedCountryCode(): String {
-        val countryKey = sharedPreferences!!.getString(selectedCountry, "USA")!!
+        val countryKey = sharedPreferences!!.getString("country", "USA")!!
         return countryCodeMap[countryKey].toString()
     }
 

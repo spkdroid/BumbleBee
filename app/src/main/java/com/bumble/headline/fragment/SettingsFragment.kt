@@ -9,10 +9,10 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.bumble.headline.R
+import com.bumble.headline.repository.CountryRepository
 import com.bumble.headline.viewmodel.SettingsViewModel
 import kotlinx.android.synthetic.main.settings_fragment.*
-import android.content.Context
-import com.bumble.headline.R
 
 
 class SettingsFragment : Fragment() {
@@ -35,27 +35,17 @@ class SettingsFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         // TODO: Use the ViewModel
 
-        val sharedpreferences = context!!.getSharedPreferences("CountryPref", Context.MODE_PRIVATE)
-
         val categories = ArrayList<String>()
         categories.addAll(viewModel.getCountryList(context))
 
-        val dataAdapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, categories)
+        val dataAdapter = ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, categories)
         countrySpinner.adapter = dataAdapter
 
-        countrySpinner.onItemSelectedListener = object : OnItemSelectedListener {
-
-            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
-                countryText.text = categories[position]
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
+        countryText.text = CountryRepository.getSelectedCountry()
 
         updateCountryButton.setOnClickListener {
-           // countryText.text = viewModel.countrySpinnerSelected
-
+            countryText.text = countrySpinner.selectedItem.toString()
+            viewModel.updateCountry(countryText.text.toString())
         }
     }
 }
