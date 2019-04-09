@@ -19,5 +19,6 @@
 
     <string name="apikey">ee5eaccd9e8a451089e664ab00b1b1db</string>
     <string name="updateButtonText">Update</string>
+    <string name="alertTitleText">Alert</string>
 
 </resources>
