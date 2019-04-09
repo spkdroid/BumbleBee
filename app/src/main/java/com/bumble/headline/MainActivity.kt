@@ -7,6 +7,9 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
 import com.bumble.headline.repository.CountryRepository
+import org.greenrobot.eventbus.EventBus
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,4 +48,6 @@ class MainActivity : AppCompatActivity() {
     private fun Setting(): Boolean {
         return true
     }
+
+
 }

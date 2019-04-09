@@ -7,10 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
 import com.bumble.headline.adapter.NewsViewAdapter
+import com.bumble.headline.model.MessageEvent
 import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
+import org.greenrobot.eventbus.EventBus
 import org.michaelbel.bottomsheet.BottomSheet
+import org.greenrobot.eventbus.ThreadMode
+import org.greenrobot.eventbus.Subscribe
+
+
 
 
 class NewsListFragment : androidx.fragment.app.Fragment() {
@@ -51,23 +58,19 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
         }
 
         swipeContainer.setOnRefreshListener {
-            viewModel.clear()
-            viewModel.newsList = viewModel.getNews(this.context!!, newsItemList, loadProgressBar)
-            newsItemList.apply {
-                adapter = NewsViewAdapter(context, viewModel.newsList)
-            }
-            newsItemList.adapter?.notifyDataSetChanged()
-            swipeContainer.isRefreshing = false
+
+            refreshNewsScreen()
+
         }
 
         if (!viewModel.isTabletDevice(this.context!!)) {
             if (viewModel.isLandScapeMode(this.context!!)) {
-                newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
+                newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
             } else {
                 newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
             }
         } else {
-            newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 1)
+            newsItemList.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
         }
 
         newsItemList.addOnItemTouchListener(
@@ -104,5 +107,18 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
                 })
         )
     }
+
+    private fun refreshNewsScreen() {
+        viewModel.clear()
+        viewModel.newsList = viewModel.getNews(this.context!!, newsItemList, loadProgressBar)
+        newsItemList.apply {
+            adapter = NewsViewAdapter(context, viewModel.newsList)
+        }
+        newsItemList.adapter?.notifyDataSetChanged()
+        swipeContainer.isRefreshing = false
+    }
+
+
+
 
 }
