@@ -11,6 +11,7 @@ import com.bumble.headline.NewsRepository
 import com.bumble.headline.di.component.DaggerNetworkComponent
 import com.bumble.headline.model.entity.Article
 import com.bumble.headline.model.entity.ArticleCollection
+import com.bumble.headline.repository.CountryRepository
 import com.wattpad.headlines.util.DialogBuilder
 import com.wattpad.headlines.util.NetworkStatus
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -54,7 +55,7 @@ class NewsListViewModel : ViewModel() {
         newsList.clear()
 
         val data = HashMap<String, String>()
-        data["country"] = "us"
+        data["country"] = CountryRepository.getSelectedCountryCode()
         data["apiKey"] = "ee5eaccd9e8a451089e664ab00b1b1db"
 
         val disposable: Disposable = mService.loadStory(data)

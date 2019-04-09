@@ -5,9 +5,8 @@ import android.content.SharedPreferences
 
 object CountryRepository {
 
-    private lateinit var sharedPreferences: SharedPreferences
-
-    private lateinit var selectedCountry: String
+    private var sharedPreferences: SharedPreferences? = null
+    var selectedCountry: String = ""
 
     val countryCodeMap: HashMap<String, String> = hashMapOf("USA" to "us", "Canada" to "ca")
 
@@ -17,12 +16,12 @@ object CountryRepository {
     }
 
     fun getSelectedCountryCode(): String {
-        val countryKey = sharedPreferences.getString(selectedCountry, "USA")!!
+        val countryKey = sharedPreferences!!.getString(selectedCountry, "USA")!!
         return countryCodeMap[countryKey].toString()
     }
 
     fun updateSelecteCountryCode(country:String):Boolean {
-        val editor = sharedPreferences.edit()
+        val editor = sharedPreferences!!.edit()
         editor.putBoolean("flag", true)
         editor.putString("country", country)
         return editor.commit()

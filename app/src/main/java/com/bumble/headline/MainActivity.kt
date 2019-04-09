@@ -16,11 +16,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        CountryRepository.initializeRepository(applicationContext)
 
         navHost = supportFragmentManager
             .findFragmentById(R.id.navHost) as NavHostFragment
-
-        CountryRepository.initializeRepository(applicationContext)
     }
 
     override fun onSupportNavigateUp(): Boolean {
