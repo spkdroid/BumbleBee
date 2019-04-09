@@ -7,5 +7,5 @@ import retrofit2.http.QueryMap
 
 interface FetchStoryAPI {
     @GET("v2/top-headlines")
-    fun loadStory(@QueryMap options:Map<String, String>): Observable<ArticleCollection>
+    fun loadStory(@QueryMap options: Map<String, String>): Observable<ArticleCollection>
 }

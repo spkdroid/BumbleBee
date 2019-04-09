@@ -1,28 +1,20 @@
-package com.bumble.headline
+package com.bumble.headline.repository
 
 import com.bumble.headline.model.entity.Article
 
 
-object NewsRepository  {
+object NewsRepository {
 
 
-     var newsList:ArrayList<Article> = ArrayList()
+    private var newsList: ArrayList<Article> = ArrayList()
 
-    lateinit var selectedArticle:Article
+    lateinit var selectedArticle: Article
 
-    fun initializeRepository(articleList:ArrayList<Article>) {
-        newsList.addAll(articleList)
-    }
-
-     fun getAll(): ArrayList<Article> {
-        return newsList
-    }
-
-    fun getSelectedNews(index:Int):Article{
+    fun getSelectedNews(index: Int): Article {
         return newsList[index]
     }
 
-     fun addNews(article: Article) {
+    fun addNews(article: Article) {
         newsList.add(article)
     }
 

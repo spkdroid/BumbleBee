@@ -1,6 +1,6 @@
 package com.bumble.headline.di.component
 
-import com.bumble.headline.util.NetModule
+import com.bumble.headline.di.module.NetModule
 import com.bumble.headline.viewmodel.NewsListViewModel
 import dagger.Component
 import javax.inject.Singleton

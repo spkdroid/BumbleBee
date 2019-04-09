@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import com.bumble.headline.NewsRepository
 import com.bumble.headline.R
 import com.bumble.headline.adapter.NewsViewAdapter
+import com.bumble.headline.repository.NewsRepository
 import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.michaelbel.bottomsheet.BottomSheet
@@ -112,8 +112,6 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
         newsItemList.adapter?.notifyDataSetChanged()
         swipeContainer.isRefreshing = false
     }
-
-
 
 
 }

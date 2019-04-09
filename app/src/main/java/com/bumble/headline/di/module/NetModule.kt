@@ -1,5 +1,6 @@
-package com.bumble.headline.util
+package com.bumble.headline.di.module
 
+import com.bumble.headline.util.Constants
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -14,7 +15,7 @@ class NetModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-         val Gson = GsonBuilder()
+        val Gson = GsonBuilder()
             .setLenient()
             .create()
 

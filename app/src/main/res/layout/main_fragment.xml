@@ -33,6 +33,5 @@
             android:src="@drawable/ic_location_on_black_24dp"
             android:layout_margin="16dp"
             android:clickable="true"
-    />
-
+            android:focusable="true"/>
 </FrameLayout>

@@ -15,15 +15,16 @@ object CountryRepository {
         "Singapore" to "sg",
         "United Kingdom" to "uk",
         "France" to "fr",
-        "Australia" to "au")
+        "Australia" to "au"
+    )
 
 
     fun initializeRepository(ctx: Context) {
         sharedPreferences = ctx.getSharedPreferences("CountryPref", Context.MODE_PRIVATE)
     }
 
-    fun getSelectedCountry():String {
-        return sharedPreferences!!.getString("country","USA")
+    fun getSelectedCountry(): String {
+        return sharedPreferences!!.getString("country", "USA")
     }
 
     fun getSelectedCountryCode(): String {
@@ -31,7 +32,7 @@ object CountryRepository {
         return countryCodeMap[countryKey].toString()
     }
 
-    fun updateSelectedCountryCode(country:String):Boolean {
+    fun updateSelectedCountryCode(country: String): Boolean {
         val editor = sharedPreferences!!.edit()
         editor.putBoolean("flag", true)
         editor.putString("country", country)

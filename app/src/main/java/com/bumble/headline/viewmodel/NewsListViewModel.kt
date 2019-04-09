@@ -6,13 +6,13 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
-import com.bumble.headline.NewsRepository
 import com.bumble.headline.R
 import com.bumble.headline.di.component.DaggerNetworkComponent
 import com.bumble.headline.model.api.FetchStoryAPI
 import com.bumble.headline.model.entity.Article
 import com.bumble.headline.model.entity.ArticleCollection
 import com.bumble.headline.repository.CountryRepository
+import com.bumble.headline.repository.NewsRepository
 import com.bumble.headline.util.DialogBuilder
 import com.bumble.headline.util.NetworkStatus
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -62,13 +62,13 @@ class NewsListViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                {
-                        result -> showResult(result, newsRecyclerView)
+                { result ->
+                    showResult(result, newsRecyclerView)
                 },
                 {
                     showError(loadProgressBar)
                 }, {
-                    showComplete(loadProgressBar,newsRecyclerView)
+                    showComplete(loadProgressBar, newsRecyclerView)
                 }
             )
         compositeDisposable.add(disposable)
@@ -89,7 +89,7 @@ class NewsListViewModel : ViewModel() {
         result!!.articles!!.forEach {
             newsList.add(it)
             NewsRepository.addNews(it)
-          }
+        }
         newsRecyclerView.adapter!!.notifyDataSetChanged()
     }
 

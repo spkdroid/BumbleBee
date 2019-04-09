@@ -18,5 +18,6 @@
     </string-array>
 
     <string name="apikey">ee5eaccd9e8a451089e664ab00b1b1db</string>
+    <string name="updateButtonText">Update</string>
 
 </resources>

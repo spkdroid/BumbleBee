@@ -1,11 +1,11 @@
 package com.bumble.headline.fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.bumble.headline.R
 import com.bumble.headline.viewmodel.NewsDetailViewModel
 import kotlinx.android.synthetic.main.news_detail_fragment.*
@@ -29,7 +29,8 @@ class NewsDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(NewsDetailViewModel::class.java)
         // TODO: Use the ViewModel
-        viewModel.initializePage(newsArticleImage,newsArticleTime,newsArticleDescription,newsArticleLink,newsArticleTitle,
+        viewModel.initializePage(
+            newsArticleImage, newsArticleTime, newsArticleDescription, newsArticleLink, newsArticleTitle,
             this.context!!
         )
     }

@@ -9,7 +9,7 @@ class SettingsViewModel : ViewModel() {
 
     fun getCountryList(context: Context?): ArrayList<String> {
         val countries = context!!.resources.getStringArray(R.array.country_arrays)
-        var result:ArrayList<String> = ArrayList()
+        val result: ArrayList<String> = ArrayList()
 
         countries.forEach {
             result.add(it)

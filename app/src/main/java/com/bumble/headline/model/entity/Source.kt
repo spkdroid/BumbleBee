@@ -8,8 +8,5 @@ class Source {
     @SerializedName("id")
     @Expose
     var id: String? = null
-    @SerializedName("name")
-    @Expose
-    var name: String? = null
 
 }

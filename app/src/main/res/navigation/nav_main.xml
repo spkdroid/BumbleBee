@@ -3,7 +3,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_main"
             app:startDestination="@id/newsListFragment">
-    <fragment android:id="@+id/newsListFragment" android:name="com.bumble.headline.NewsListFragment"
+    <fragment android:id="@+id/newsListFragment" android:name="com.bumble.headline.fragment.NewsListFragment"
               android:label="NewsListFragment">
         <action android:id="@+id/action_newsListFragment_to_newsDetailFragment2"
                 app:destination="@id/newsDetailFragment2"/>

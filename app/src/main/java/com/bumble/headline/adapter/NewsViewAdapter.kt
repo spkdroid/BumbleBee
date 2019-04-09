@@ -41,11 +41,12 @@ class NewsViewAdapter(private val mContext: Context, private val mData: List<Art
         context: Context,
         private val clicker: ClickListener?
     ) : androidx.recyclerview.widget.RecyclerView.OnItemTouchListener {
-        private val gestureDetector: GestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
-            override fun onSingleTapUp(e: MotionEvent): Boolean {
-                return true
-            }
-        })
+        private val gestureDetector: GestureDetector =
+            GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+                override fun onSingleTapUp(e: MotionEvent): Boolean {
+                    return true
+                }
+            })
 
         override fun onInterceptTouchEvent(rv: androidx.recyclerview.widget.RecyclerView, e: MotionEvent): Boolean {
             val child = rv.findChildViewUnder(e.x, e.y)

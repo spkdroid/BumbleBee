@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
-import com.bumble.headline.NewsRepository
+import com.bumble.headline.repository.NewsRepository
 import com.bumptech.glide.Glide
 
 class NewsDetailViewModel : ViewModel() {
@@ -13,7 +13,7 @@ class NewsDetailViewModel : ViewModel() {
         newsArticleImage: ImageView,
         newsArticleTime: TextView,
         newsArticleDescription: TextView,
-        newsArticleLink: TextView,newsArticleTitle:TextView,
+        newsArticleLink: TextView, newsArticleTitle: TextView,
         context: Context
     ) {
         Glide.with(context).load(NewsRepository.selectedArticle.urlToImage).into(newsArticleImage)

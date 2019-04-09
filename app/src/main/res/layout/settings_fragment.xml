@@ -15,7 +15,6 @@
             android:textColor="@android:color/black"
     />
     <TextView
-            android:text="Canada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/countryText"
@@ -31,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
     <Button
-            android:text="Update"
+            android:text="@string/updateButtonText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/updateCountryButton" android:layout_marginTop="29dp"
