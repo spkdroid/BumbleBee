@@ -5,8 +5,8 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumble.headline.R
+import com.bumble.headline.model.entity.Article
 import com.bumptech.glide.Glide
-import com.wattpad.headlines.model.entity.Article
 
 
 class NewsViewAdapter(private val mContext: Context, private val mData: List<Article>) :

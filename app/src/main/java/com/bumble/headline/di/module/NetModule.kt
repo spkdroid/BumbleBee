@@ -1,4 +1,4 @@
-package com.wattpad.headlines.di.module
+package com.bumble.headline
 
 import com.google.gson.GsonBuilder
 import com.wattpad.headlines.util.Constants

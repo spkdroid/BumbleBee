@@ -1,4 +1,4 @@
-package com.wattpad.headlines.model.entity
+package com.bumble.headline.model.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

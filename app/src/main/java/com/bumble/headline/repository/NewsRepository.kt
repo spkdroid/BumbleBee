@@ -1,23 +1,32 @@
 package com.bumble.headline
 
-import com.wattpad.headlines.model.entity.Article
-import com.wattpad.headlines.service.RepositoryService
+import com.bumble.headline.model.entity.Article
 
 
-object NewsRepository : RepositoryService {
+object NewsRepository  {
 
-    lateinit var newsList:ArrayList<Article>
 
-    override fun initializeRepository(articleList:ArrayList<Article>) {
+     var newsList:ArrayList<Article> = ArrayList()
+
+    fun initializeRepository(articleList:ArrayList<Article>) {
         newsList.addAll(articleList)
     }
 
-    override fun getAll(): ArrayList<Article> {
+     fun getAll(): ArrayList<Article> {
         return newsList
     }
 
-    override fun addNews(article: Article) {
+    fun getSelectedNews(index:Int):Article{
+        return newsList[index]
+    }
+
+     fun addNews(article: Article) {
         newsList.add(article)
     }
+
+    fun clearNewsList() {
+        newsList.clear()
+    }
+
 
 }

@@ -1,15 +1,16 @@
-package com.wattpad.headlines.viewmodel
+package com.bumble.headline.viewmodel
 
 import android.content.Context
 import android.content.res.Configuration
 import android.view.View
 import android.widget.ProgressBar
+import com.bumble.headline.model.api.FetchStroyAPI
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
-import com.wattpad.headlines.di.component.DaggerNetworkComponent
-import com.wattpad.headlines.model.api.FetchStroyAPI
-import com.wattpad.headlines.model.entity.Article
-import com.wattpad.headlines.model.entity.ArticleCollection
+import com.bumble.headline.NewsRepository
+import com.bumble.headline.di.component.DaggerNetworkComponent
+import com.bumble.headline.model.entity.Article
+import com.bumble.headline.model.entity.ArticleCollection
 import com.wattpad.headlines.util.DialogBuilder
 import com.wattpad.headlines.util.NetworkStatus
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -87,12 +88,14 @@ class NewsListViewModel : ViewModel() {
 
         result!!.articles!!.forEach {
             newsList.add(it)
-        }
+            NewsRepository.addNews(it)
+          }
         newsRecyclerView.adapter!!.notifyDataSetChanged()
     }
 
     fun clear() {
         newsList.clear()
+        NewsRepository.clearNewsList()
     }
 
     fun isTabletDevice(ctx: Context): Boolean {

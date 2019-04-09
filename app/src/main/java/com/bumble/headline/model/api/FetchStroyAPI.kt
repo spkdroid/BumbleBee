@@ -1,6 +1,6 @@
-package com.wattpad.headlines.model.api
+package com.bumble.headline.model.api
 
-import com.wattpad.headlines.model.entity.ArticleCollection
+import com.bumble.headline.model.entity.ArticleCollection
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

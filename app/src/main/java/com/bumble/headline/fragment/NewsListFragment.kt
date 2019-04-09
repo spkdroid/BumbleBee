@@ -1,4 +1,4 @@
-package com.wattpad.headlines.fragment
+package com.bumble.headline
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import com.bumble.headline.R
 import com.bumble.headline.adapter.NewsViewAdapter
-import com.wattpad.headlines.viewmodel.NewsListViewModel
+import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import org.michaelbel.bottomsheet.BottomSheet
 

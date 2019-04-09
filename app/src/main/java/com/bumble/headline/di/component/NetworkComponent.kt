@@ -1,7 +1,7 @@
-package com.wattpad.headlines.di.component
+package com.bumble.headline.di.component
 
-import com.wattpad.headlines.di.module.NetModule
-import com.wattpad.headlines.viewmodel.NewsListViewModel
+import com.bumble.headline.NetModule
+import com.bumble.headline.viewmodel.NewsListViewModel
 import dagger.Component
 import javax.inject.Singleton
 
