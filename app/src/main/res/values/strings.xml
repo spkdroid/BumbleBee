@@ -4,4 +4,6 @@
 
     <string name="share">Share</string>
     <string name="view">Read More</string>
+
+    <string name="selectedCountryText">Selected Country</string>
 </resources>
