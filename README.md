@@ -43,7 +43,7 @@ Technology stack used in Bike Index
 ## VIDEO
 
 <p align="center">
-  <img src="https://github.com/spkdroid/BumbleBee/blob/master/tutorial.gif" width="500" height="500"/>
+  <img src="https://github.com/spkdroid/BumbleBee/blob/master/tutorial.gif" width="200" height="300"/>
 </p>
 
 
