@@ -9,6 +9,10 @@
 <h4 align="center">View all Breaking news around the world, filter them based on countries. 
 All the news content are short and brief.</h4>
 
+<p align="center">
+  <img src="screenshots.png">
+</p>
+
 ## Features
 
 A few of the things you can do with BumbleBee:
