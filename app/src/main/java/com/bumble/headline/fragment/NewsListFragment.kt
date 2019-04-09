@@ -1,11 +1,12 @@
 package com.bumble.headline
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.bumble.headline.adapter.NewsViewAdapter
 import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
@@ -72,7 +73,6 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
                     NewsViewAdapter.ClickListener {
                     override fun onClick(view: View, position: Int) {
 
-
                         val items = intArrayOf(R.string.view, R.string.share)
 
                         val icons = intArrayOf(
@@ -83,9 +83,16 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
                         bottomSheetMenu.setTitle("More Options")
                             .setItems(items, icons) { dialog, which ->
                                 if (which == 0) {
-                                    Toast.makeText(context, "Option 0 Selected", Toast.LENGTH_LONG).show()
+                                    NewsRepository.selectedArticle = NewsRepository.getSelectedNews(position)
+                                    Navigation.findNavController(view)
+                                        .navigate(R.id.action_newsListFragment_to_newsDetailFragment2)
                                 } else {
-                                    Toast.makeText(context, "Option 1 Selected", Toast.LENGTH_LONG).show()
+                                    val sendIntent: Intent = Intent().apply {
+                                        action = Intent.ACTION_SEND
+                                        putExtra(Intent.EXTRA_TEXT, NewsRepository.getSelectedNews(position).url)
+                                        type = "text/plain"
+                                    }
+                                    startActivity(sendIntent)
                                 }
                             }
                         bottomSheetMenu.show()

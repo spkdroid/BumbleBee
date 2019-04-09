@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/nav_main"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_main"
             app:startDestination="@id/newsListFragment">
     <fragment android:id="@+id/newsListFragment" android:name="com.bumble.headline.NewsListFragment"
-              android:label="NewsListFragment"/>
+              android:label="NewsListFragment">
+        <action android:id="@+id/action_newsListFragment_to_newsDetailFragment2"
+                app:destination="@id/newsDetailFragment2"/>
+    </fragment>
+    <fragment android:id="@+id/newsDetailFragment2" android:name="com.bumble.headline.fragment.NewsDetailFragment"
+              android:label="news_detail_fragment" tools:layout="@layout/news_detail_fragment"/>
 </navigation>

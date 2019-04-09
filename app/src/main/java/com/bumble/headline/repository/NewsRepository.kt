@@ -8,6 +8,8 @@ object NewsRepository  {
 
      var newsList:ArrayList<Article> = ArrayList()
 
+    lateinit var selectedArticle:Article
+
     fun initializeRepository(articleList:ArrayList<Article>) {
         newsList.addAll(articleList)
     }
