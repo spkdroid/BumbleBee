@@ -13,13 +13,18 @@ class NewsDetailViewModel : ViewModel() {
         newsArticleImage: ImageView,
         newsArticleTime: TextView,
         newsArticleDescription: TextView,
-        newsArticleLink: TextView,
+        newsArticleLink: TextView,newsArticleTitle:TextView,
         context: Context
     ) {
-
         Glide.with(context).load(NewsRepository.selectedArticle.urlToImage).into(newsArticleImage)
 
+        newsArticleTime.text = NewsRepository.selectedArticle.publishedAt
 
+        newsArticleDescription.text = NewsRepository.selectedArticle.content
+
+        newsArticleLink.text = NewsRepository.selectedArticle.url
+
+        newsArticleTitle.text = NewsRepository.selectedArticle.title
     }
     // TODO: Implement the ViewModel
 }

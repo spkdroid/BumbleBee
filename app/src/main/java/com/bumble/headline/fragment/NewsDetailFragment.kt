@@ -29,7 +29,7 @@ class NewsDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(NewsDetailViewModel::class.java)
         // TODO: Use the ViewModel
-        viewModel.initalizePage(newsArticleImage,newsArticleTime,newsArticleDescription,newsArticleLink,
+        viewModel.initalizePage(newsArticleImage,newsArticleTime,newsArticleDescription,newsArticleLink,newsArticleTitle,
             this!!.context!!
         )
     }
