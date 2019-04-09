@@ -35,7 +35,7 @@ class NewsListViewModel : ViewModel() {
     @Inject
     lateinit var fetchStory: Retrofit
 
-    var bookList: ArrayList<Article> = ArrayList()
+    var newsList: ArrayList<Article> = ArrayList()
 
     fun getBooks(
         context: Context,

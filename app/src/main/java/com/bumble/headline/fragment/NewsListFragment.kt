@@ -35,15 +35,15 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(NewsListViewModel::class.java)
 
-        if (viewModel.bookList.isEmpty()) {
+        if (viewModel.newsList.isEmpty()) {
             newsItemList.visibility = View.GONE
-            viewModel.bookList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
+            viewModel.newsList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
         } else {
             loadProgressBar.visibility = View.GONE
         }
 
         newsItemList.apply {
-            adapter = NewsViewAdapter(context, viewModel.bookList)
+            adapter = NewsViewAdapter(context, viewModel.newsList)
         }
 
         changeHeadlineLocation.setOnClickListener {
@@ -52,9 +52,9 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
 
         swipeContainer.setOnRefreshListener {
             viewModel.clear()
-            viewModel.bookList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
+            viewModel.newsList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
             newsItemList.apply {
-                adapter = NewsViewAdapter(context, viewModel.bookList)
+                adapter = NewsViewAdapter(context, viewModel.newsList)
             }
             newsItemList.adapter?.notifyDataSetChanged()
             swipeContainer.isRefreshing = false
