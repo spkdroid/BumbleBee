@@ -27,3 +27,11 @@ Technology stack used in Bike Index
 * [Dagger](https://google.github.io/dagger/)
 * [Retrofit](https://square.github.io/retrofit/)
 * [Glide](https://github.com/bumptech/glide)
+
+
+## Build Process
+
+**Android Studio 3.3 required**
+
+* Clone or download the repo
+* Import project and build
