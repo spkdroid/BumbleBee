@@ -57,7 +57,6 @@ class NewsListViewModel : ViewModel() {
         data["country"] = "us"
         data["apiKey"] = "ee5eaccd9e8a451089e664ab00b1b1db"
 
-
         val disposable: Disposable = mService.loadStory(data)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
