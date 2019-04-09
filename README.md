@@ -13,6 +13,10 @@ All the news content are short and brief.</h4>
   <img src="https://github.com/spkdroid/BumbleBee/blob/master/screenshot.png" width="500" height="500"/>
 </p>
 
+## Authors
+
+* **Ramkumar Velmurugan** - <a href="http://www.spkdroid.com/CV/">Portfolio</a>
+
 ## Features
 
 A few of the things you can do with BumbleBee:
