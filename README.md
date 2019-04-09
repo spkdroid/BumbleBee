@@ -39,3 +39,11 @@ Technology stack used in Bike Index
 
 * Clone or download the repo
 * Import project and build
+
+## VIDEO
+
+<p align="center">
+  <img src="https://github.com/spkdroid/BumbleBee/blob/master/tutorial.gif" width="500" height="500"/>
+</p>
+
+
