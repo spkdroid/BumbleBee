@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.res.Configuration
 import android.view.View
 import android.widget.ProgressBar
-import com.bumble.headline.model.api.FetchStroyAPI
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.bumble.headline.NewsRepository
 import com.bumble.headline.di.component.DaggerNetworkComponent
+import com.bumble.headline.model.api.FetchStoryAPI
 import com.bumble.headline.model.entity.Article
 import com.bumble.headline.model.entity.ArticleCollection
 import com.bumble.headline.repository.CountryRepository
@@ -50,7 +50,7 @@ class NewsListViewModel : ViewModel() {
             return newsList
         }
 
-        val mService = fetchStory.create(FetchStroyAPI::class.java)
+        val mService = fetchStory.create(FetchStoryAPI::class.java)
 
         newsList.clear()
 

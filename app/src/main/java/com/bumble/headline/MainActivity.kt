@@ -7,7 +7,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
 import com.bumble.headline.repository.CountryRepository
-import org.greenrobot.eventbus.EventBus
 
 
 

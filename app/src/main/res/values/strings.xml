@@ -6,6 +6,8 @@
     <string name="view">Read More</string>
 
     <string name="selectedCountryText">Selected Country</string>
+    <string name="cardImageDescription">News feed card item description</string>
+    <string name="detailImageDescription">Detail page image description</string>
 
     <string-array name="country_arrays">
         <item>Australia</item>

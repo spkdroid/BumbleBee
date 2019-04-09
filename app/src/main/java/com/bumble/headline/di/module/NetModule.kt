@@ -15,14 +15,14 @@ class NetModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-        val gson = GsonBuilder()
+        val Gson = GsonBuilder()
             .setLenient()
             .create()
 
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create(Gson))
             .build()
     }
 }

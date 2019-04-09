@@ -3,7 +3,7 @@ package com.bumble.headline.viewmodel
 import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel
 import com.bumble.headline.NewsRepository
 import com.bumptech.glide.Glide
 
@@ -26,5 +26,5 @@ class NewsDetailViewModel : ViewModel() {
 
         newsArticleTitle.text = NewsRepository.selectedArticle.title
     }
-    // TODO: Implement the ViewModel
+
 }

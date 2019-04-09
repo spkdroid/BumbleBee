@@ -7,17 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.RecyclerView
 import com.bumble.headline.adapter.NewsViewAdapter
-import com.bumble.headline.model.MessageEvent
 import com.bumble.headline.viewmodel.NewsListViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
-import org.greenrobot.eventbus.EventBus
 import org.michaelbel.bottomsheet.BottomSheet
-import org.greenrobot.eventbus.ThreadMode
-import org.greenrobot.eventbus.Subscribe
-
-
 
 
 class NewsListFragment : androidx.fragment.app.Fragment() {
@@ -54,7 +47,7 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
         }
 
         changeHeadlineLocation.setOnClickListener {
-            Navigation.findNavController(this!!.view!!).navigate(R.id.action_newsListFragment_to_settingsFragment)
+            Navigation.findNavController(this.view!!).navigate(R.id.action_newsListFragment_to_settingsFragment)
         }
 
         swipeContainer.setOnRefreshListener {
@@ -88,7 +81,7 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
                         )
                         val bottomSheetMenu = BottomSheet.Builder(view.context)
                         bottomSheetMenu.setTitle("More Options")
-                            .setItems(items, icons) { dialog, which ->
+                            .setItems(items, icons) { _, which ->
                                 if (which == 0) {
                                     NewsRepository.selectedArticle = NewsRepository.getSelectedNews(position)
                                     Navigation.findNavController(view)

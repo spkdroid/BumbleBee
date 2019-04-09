@@ -19,7 +19,7 @@ class NewsViewAdapter(private val mContext: Context, private val mData: List<Art
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View
         val mInflater = LayoutInflater.from(mContext)
-        view = mInflater.inflate(R.layout.cardveiw_item_book, parent, false)
+        view = mInflater.inflate(R.layout.cardveiw_item_news, parent, false)
         return MyViewHolder(view)
     }
 
