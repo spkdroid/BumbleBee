@@ -6,5 +6,5 @@
   <br>
 </h1>
 
-Bumble Bee provides breaking news in short or brief less than 100 words. The breaking news inside the application are provided based on the country.
+<h4 align="center">Bumble Bee provides breaking news in short or brief less than 100 words. The breaking news inside the application are provided based on the country.</h4>
 
