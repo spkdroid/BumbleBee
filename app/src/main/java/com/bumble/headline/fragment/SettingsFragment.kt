@@ -9,9 +9,10 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.bumble.headline.R
 import com.bumble.headline.viewmodel.SettingsViewModel
 import kotlinx.android.synthetic.main.settings_fragment.*
+import android.content.Context
+import com.bumble.headline.R
 
 
 class SettingsFragment : Fragment() {
@@ -34,6 +35,8 @@ class SettingsFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         // TODO: Use the ViewModel
 
+        val sharedpreferences = context!!.getSharedPreferences("CountryPref", Context.MODE_PRIVATE)
+
         val categories = ArrayList<String>()
         categories.addAll(viewModel.getCountryList(context))
 
@@ -52,6 +55,7 @@ class SettingsFragment : Fragment() {
 
         updateCountryButton.setOnClickListener {
            // countryText.text = viewModel.countrySpinnerSelected
+
         }
     }
 }

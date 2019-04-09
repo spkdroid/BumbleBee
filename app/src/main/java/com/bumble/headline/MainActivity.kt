@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
+import com.bumble.headline.repository.CountryRepository
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         navHost = supportFragmentManager
             .findFragmentById(R.id.navHost) as NavHostFragment
+
+        CountryRepository.initializeRepository(applicationContext)
     }
 
     override fun onSupportNavigateUp(): Boolean {
