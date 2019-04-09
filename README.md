@@ -9,3 +9,21 @@
 <h4 align="center">View all Breaking news around the world, filter them based on countries. 
 All the news content are short and brief.</h4>
 
+## Features
+
+A few of the things you can do with BumbleBee:
+
+* View all the breaking news from different news source
+* See all details about the news source
+* All the news content are less than 100 words.
+* Share the news content
+
+## Technology stack
+
+Technology stack used in Bike Index
+
+* [MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel)
+* [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
+* [Dagger](https://google.github.io/dagger/)
+* [Retrofit](https://square.github.io/retrofit/)
+* [Glide](https://github.com/bumptech/glide)
