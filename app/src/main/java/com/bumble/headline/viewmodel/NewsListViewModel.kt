@@ -38,7 +38,7 @@ class NewsListViewModel : ViewModel() {
 
     var newsList: ArrayList<Article> = ArrayList()
 
-    fun getBooks(
+    fun getNews(
         context: Context,
         newsRecyclerView: RecyclerView,
         loadProgressBar: ProgressBar

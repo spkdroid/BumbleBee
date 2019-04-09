@@ -37,7 +37,7 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
 
         if (viewModel.newsList.isEmpty()) {
             newsItemList.visibility = View.GONE
-            viewModel.newsList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
+            viewModel.newsList = viewModel.getNews(this.context!!, newsItemList, loadProgressBar)
         } else {
             loadProgressBar.visibility = View.GONE
         }
@@ -52,7 +52,7 @@ class NewsListFragment : androidx.fragment.app.Fragment() {
 
         swipeContainer.setOnRefreshListener {
             viewModel.clear()
-            viewModel.newsList = viewModel.getBooks(this.context!!, newsItemList, loadProgressBar)
+            viewModel.newsList = viewModel.getNews(this.context!!, newsItemList, loadProgressBar)
             newsItemList.apply {
                 adapter = NewsViewAdapter(context, viewModel.newsList)
             }

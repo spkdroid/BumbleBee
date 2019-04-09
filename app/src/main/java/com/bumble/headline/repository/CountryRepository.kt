@@ -8,7 +8,14 @@ object CountryRepository {
     private var sharedPreferences: SharedPreferences? = null
 
 
-    private val countryCodeMap: HashMap<String, String> = hashMapOf("USA" to "us", "Canada" to "ca","India" to "in")
+    private val countryCodeMap: HashMap<String, String> = hashMapOf(
+        "United States" to "us",
+        "Canada" to "ca",
+        "India" to "in",
+        "Singapore" to "sg",
+        "United Kingdom" to "uk",
+        "France" to "fr",
+        "Australia" to "au")
 
 
     fun initializeRepository(ctx: Context) {
