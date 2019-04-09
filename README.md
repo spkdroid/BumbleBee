@@ -10,7 +10,7 @@
 All the news content are short and brief.</h4>
 
 <p align="center">
-  <img src="https://github.com/spkdroid/BumbleBee/blob/master/screenshot.png" width="300" height="500"/>
+  <img src="https://github.com/spkdroid/BumbleBee/blob/master/screenshot.png" width="500" height="350"/>
 </p>
 
 ## Features
