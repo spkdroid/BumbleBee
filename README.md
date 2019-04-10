@@ -28,7 +28,7 @@ A few of the things you can do with BumbleBee:
 
 ## Technology stack
 
-Technology stack used in Bike Index
+Technology stack used in BumbleBee
 
 * [MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
